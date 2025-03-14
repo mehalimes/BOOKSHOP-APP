@@ -8,5 +8,6 @@ namespace bookshop.webapi.Contexts
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }

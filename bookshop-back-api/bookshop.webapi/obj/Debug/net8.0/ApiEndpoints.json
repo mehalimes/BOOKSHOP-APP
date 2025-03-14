@@ -20,6 +20,32 @@
     ]
   },
   {
+    "ContainingType": "bookshop.webapi.Controllers.BookController",
+    "Method": "getBookById",
+    "RelativePath": "getBookById",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Controllers.BookController\u002BGetBookByIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "bookshop.webapi.Models.Book",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "bookshop.webapi.Controllers.GoogleApiController",
     "Method": "GetBooksFromApi",
     "RelativePath": "getBooksFromApi",

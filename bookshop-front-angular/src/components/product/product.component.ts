@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { SharedStateService } from '../../services/shared-state.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -14,4 +16,15 @@ export class ProductComponent {
   @Input() price: number = 0;
   @Input() title: string = "";
   @Input() subTitle?: string = "";
+
+  constructor(
+    private sharedState: SharedStateService,
+    private router: Router
+  ) { }
+
+  navigateToProductPage() {
+    this.router.navigate(["/productPage"]);
+    this.sharedState.productPageId = this.id;
+    sessionStorage.setItem("productId", this.id.toString());
+  }
 }

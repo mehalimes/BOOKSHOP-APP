@@ -31,6 +31,7 @@ export class RegisterComponent {
     }
     catch (err) {
       console.log(err);
+      window.alert("Register unsuccessfull.");
     }
   }
 }
