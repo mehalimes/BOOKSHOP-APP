@@ -28,6 +28,7 @@ export class RegisterComponent {
         )
       );
       this.router.navigate(["/"]);
+      window.alert("Register successfull.");
     }
     catch (err) {
       console.log(err);

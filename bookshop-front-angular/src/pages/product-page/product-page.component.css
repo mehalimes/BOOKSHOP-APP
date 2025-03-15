@@ -25,7 +25,7 @@ h4 {
 div.comment-container {
   float: left;
   width: 500px;
-  background-color: red;
+  background-color: white;
   width: 400px;
   height: 500px;
 }
@@ -44,6 +44,7 @@ textarea {
 
 div.comments {
   width: 400px;
-  background-color: green;
+  background-color: white;
   height: 380px;
+  overflow-y: scroll;
 }

@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "bookshop.webapi.Controllers.CommentController",
+    "Method": "AddCommentToABook",
+    "RelativePath": "addCommentToABook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Controllers.CommentController\u002BAddCommentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bookshop.webapi.Controllers.CartController",
+    "Method": "AddToCart",
+    "RelativePath": "addToCart",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "bookshop.webapi.Controllers.BookController",
     "Method": "getAllBooks",
     "RelativePath": "getAllBooks",
@@ -10,6 +36,32 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[bookshop.webapi.Models.Book, bookshop.webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "bookshop.webapi.Controllers.CommentController",
+    "Method": "GetAllCommentsOfABook",
+    "RelativePath": "getAllCommentsOfABook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Controllers.CommentController\u002BBookIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[bookshop.webapi.Dtos.CommentDto, bookshop.webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -82,6 +134,22 @@
       {
         "Name": "request",
         "Type": "bookshop.webapi.Controllers.AuthController\u002BRegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bookshop.webapi.Controllers.CommentController",
+    "Method": "RemoveAComment",
+    "RelativePath": "removeAComment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Controllers.CommentController\u002BRemoveCommentRequest",
         "IsRequired": true
       }
     ],

@@ -24,9 +24,18 @@
     </div>
     <div class="comment-container">
       <h1>Yorumlar</h1>
-      <div class="comments">comments</div>
-      <textarea></textarea>
-      <button>Yorum Yap</button>
+      <div class="comments">
+        <app-comment
+          *ngFor="let comment of sharedState.allComments"
+          [id]="comment.id"
+          [email]="comment.email"
+          [content]="comment.content"
+          [bookId]="comment.bookId"
+        >
+        </app-comment>
+      </div>
+      <textarea [(ngModel)]="this.commentTextArea"></textarea>
+      <button (click)="addComment()">Yorum Yap</button>
     </div>
   </div>
 </div>

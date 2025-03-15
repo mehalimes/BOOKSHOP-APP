@@ -28,16 +28,17 @@ namespace bookshop.webapi.Controllers
             {
                 UserName = request.Email,
                 Email = request.Email,
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                Cart = new Cart(),
+                Comments = new List<Comment>()
             };
 
             IdentityResult result = await userManager.CreateAsync(newUser, request.Password);
-
+            await db.SaveChangesAsync();
             if (result.Succeeded)
             {
                 return Ok("User created.");
             }
-            await db.SaveChangesAsync();
             return BadRequest("User couldn't created.");
         }
 

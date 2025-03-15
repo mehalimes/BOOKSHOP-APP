@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace bookshop.webapi.Models
 {
@@ -14,5 +15,7 @@ namespace bookshop.webapi.Models
         public float Price { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }
+        public List<Comment> Comments { get; set; }
+        public List<CartItem> CartItems { get; set; }
     }
 }

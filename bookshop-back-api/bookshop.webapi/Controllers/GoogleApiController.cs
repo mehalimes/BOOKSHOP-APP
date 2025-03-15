@@ -14,7 +14,7 @@ namespace bookshop.webapi.Controllers
         {
             string apiKey = "myapikey";
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync($"https://www.googleapis.com/books/v1/volumes?q=clean+code&key={apiKey}");
+            HttpResponseMessage response = await client.GetAsync($"https://www.googleapis.com/books/v1/volumes?q=design+patterns&key={apiKey}");
 
             if (response.IsSuccessStatusCode)
             {

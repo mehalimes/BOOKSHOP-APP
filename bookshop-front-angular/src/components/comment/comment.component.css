@@ -1,0 +1,14 @@
+div.container {
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+div.content-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+h4 {
+  margin: 0px 4px 4px 4px;
+}
