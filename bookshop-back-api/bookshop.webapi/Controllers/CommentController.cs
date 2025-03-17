@@ -11,9 +11,9 @@ namespace bookshop.webapi.Controllers
     [ApiController]
     public class CommentController(UserManager<AppUser> userManager, AppDbContext db) : ControllerBase
     {
-        public record BookIdRequest(int bookId);
-        public record AddCommentRequest(string email, int bookId, string content);
-        public record RemoveCommentRequest(int commentId);
+        public record BookIdRequest(int BookId);
+        public record AddCommentRequest(string Email, int BookId, string Content);
+        public record RemoveCommentRequest(int CommentId);
 
         [HttpPost("getAllCommentsOfABook")]
         public ActionResult<List<CommentDto>> GetAllCommentsOfABook([FromBody] BookIdRequest request)
@@ -21,7 +21,7 @@ namespace bookshop.webapi.Controllers
             List<CommentDto> comments = db.Comments
                 .Include(c => c.Book)
                 .Include(c => c.User)
-                .Where(c => c.Book.Id == request.bookId)
+                .Where(c => c.Book.Id == request.BookId)
                 .Select(c => new CommentDto
                 {
                     Id = c.Id,
@@ -36,14 +36,14 @@ namespace bookshop.webapi.Controllers
         [HttpPost("addCommentToABook")]
         public async Task<ActionResult> AddCommentToABook([FromBody] AddCommentRequest request)
         {
-            AppUser currentUser = await userManager.FindByEmailAsync(request.email);
-            Book currentBook = await db.Books.FindAsync(request.bookId);
+            AppUser currentUser = await userManager.FindByEmailAsync(request.Email);
+            Book currentBook = await db.Books.FindAsync(request.BookId);
 
             if(currentUser is null)
             {
                 return NotFound("User could not be found.");
             }
-            if(request.content == "")
+            if(request.Content == "")
             {
                 return BadRequest("Content cannot be empty.");
             }
@@ -52,7 +52,7 @@ namespace bookshop.webapi.Controllers
             {
                 Book = currentBook,
                 User = currentUser,
-                Content = request.content
+                Content = request.Content
             });
 
             db.SaveChanges();
@@ -63,7 +63,7 @@ namespace bookshop.webapi.Controllers
         [HttpPost("removeAComment")]
         public ActionResult RemoveAComment([FromBody] RemoveCommentRequest request)
         {
-            Comment existingComment = db.Comments.Find(request.commentId);
+            Comment existingComment = db.Comments.Find(request.CommentId);
             db.Comments.Remove(existingComment);
             db.SaveChanges();
             return Ok("Comment has been removed successfully.");

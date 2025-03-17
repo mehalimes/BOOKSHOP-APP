@@ -27,6 +27,8 @@ export class RegisterComponent {
           { responseType: 'text' as 'json' }
         )
       );
+      this.sharedState.email = "";
+      this.sharedState.password = "";
       this.router.navigate(["/"]);
       window.alert("Register successfull.");
     }

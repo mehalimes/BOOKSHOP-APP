@@ -10,6 +10,11 @@ namespace bookshop.webapi.Models
         public int Id { get; set; }
         public List<CartItem> Items { get; set; }
         public AppUser User { get; set; }
-        public float TotalPrice => Items.Sum(ci => ci.Quantity * ci.Book.Price);
+        public float TotalPrice { get; set; }
+
+        public void UpdateTotalPrice()
+        {
+            TotalPrice = Items.Sum(ci => ci.Quantity * ci.Book.Price);
+        }
     }
 }

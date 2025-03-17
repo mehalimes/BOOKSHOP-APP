@@ -5,7 +5,7 @@ import { BookComment } from '../models/BookComment';
   providedIn: 'root'
 })
 export class SharedStateService {
-  email: string = "";
+  email: string = localStorage.getItem("email") ?? "";
   password: string = "";
   productPageId: number = 0;
   isAuthenticated: boolean = localStorage.getItem("isAuthenticated") == "true" ? true : false;

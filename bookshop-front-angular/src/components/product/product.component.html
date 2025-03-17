@@ -5,5 +5,9 @@
     <h5 class="subTitle">{{ this.subTitle }}</h5>
     <h3 class="price">{{ this.price }} ₺</h3>
   </div>
-  <button>Sepete Ekle</button>
+  <button
+    (click)="functions.addToCart(this.id, this.sharedState.email, $event)"
+  >
+    Sepete Ekle
+  </button>
 </div>

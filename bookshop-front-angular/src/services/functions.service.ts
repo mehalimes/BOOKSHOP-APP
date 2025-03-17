@@ -19,4 +19,23 @@ export class FunctionsService {
     );
     return JSON.parse(getAllCommentsResponse);
   }
+
+  async addToCart(bookId: number, email: string, event: Event) {
+    try {
+      event.stopPropagation();
+      const addToCartResponse = await lastValueFrom(
+        this.http.post<string>(
+          "https://localhost:7001/addToCart",
+          { BookId: bookId, Email: email },
+          { responseType: 'text' as 'json' }
+        )
+      );
+      console.log(addToCartResponse);
+      window.alert("Added to cart successfully.");
+    }
+    catch (err) {
+      console.log(err);
+      window.alert("Could not add to cart.");
+    }
+  }
 }

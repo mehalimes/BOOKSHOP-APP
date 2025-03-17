@@ -12,13 +12,13 @@ namespace bookshop.webapi.Controllers
         public record GetBookByIdRequest(int Id);
 
         [HttpGet("getAllBooks")]
-        public ActionResult<List<Book>> getAllBooks()
+        public ActionResult<List<Book>> GetAllBooks()
         {
             return db.Books.ToList();
         }
 
         [HttpPost("getBookById")]
-        public ActionResult<Book> getBookById([FromBody] GetBookByIdRequest request)
+        public ActionResult<Book> GetBookById([FromBody] GetBookByIdRequest request)
         {
             Book currentBook = db.Books.Find(request.Id);
 

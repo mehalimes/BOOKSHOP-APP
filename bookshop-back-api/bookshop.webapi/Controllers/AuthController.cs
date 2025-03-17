@@ -29,7 +29,10 @@ namespace bookshop.webapi.Controllers
                 UserName = request.Email,
                 Email = request.Email,
                 EmailConfirmed = true,
-                Cart = new Cart(),
+                Cart = new Cart
+                {
+                    Items = new List<CartItem>(),
+                },
                 Comments = new List<Comment>()
             };
 

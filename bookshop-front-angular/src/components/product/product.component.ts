@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SharedStateService } from '../../services/shared-state.service';
 import { Router } from '@angular/router';
+import { FunctionsService } from '../../services/functions.service';
 
 @Component({
   selector: 'app-product',
@@ -18,8 +19,9 @@ export class ProductComponent {
   @Input() subTitle?: string = "";
 
   constructor(
-    private sharedState: SharedStateService,
-    private router: Router
+    public sharedState: SharedStateService,
+    private router: Router,
+    public functions: FunctionsService
   ) { }
 
   navigateToProductPage() {
