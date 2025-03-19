@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>KAYIT OL</h2>
+  <input
+    class="email"
+    placeholder="Email"
+    [(ngModel)]="this.sharedState.email"
+  />
+  <input
+    class="password"
+    placeholder="Password"
+    [(ngModel)]="this.sharedState.password"
+  />
+  <button (click)="register()">Register</button>
+</div>

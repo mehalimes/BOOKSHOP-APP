@@ -1,0 +1,15 @@
+main {
+  height: 1300px;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+a {
+  margin: 10px;
+}
+
+h4 {
+  margin: 10px;
+}

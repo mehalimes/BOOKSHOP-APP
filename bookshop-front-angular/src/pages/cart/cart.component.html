@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>SEPETİM</h1>
+  <app-cart-item
+    *ngFor="let item of cartItems"
+    [id]="item.id"
+    [isbn_13]="item.book!.isbn_13"
+    [publicId]="item.book!.publicId"
+    [author]="item.book!.author"
+    [price]="item.book!.price"
+    [title]="item.book!.title"
+    [subTitle]="item.book!.subTitle"
+    [quantity]="item.quantity"
+  ></app-cart-item>
+  <h3>Toplam Fiyat : {{ this.totalPrice }} ₺</h3>
+  <button id="payment" (click)="makePayment()">Ödeme Yap</button>
+</div>

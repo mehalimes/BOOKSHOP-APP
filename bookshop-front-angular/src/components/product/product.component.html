@@ -1,0 +1,13 @@
+<div class="container" (click)="navigateToProductPage()">
+  <img src="{{ this.publicId }}" />
+  <div class="left">
+    <h4 class="title">{{ this.title }}</h4>
+    <h5 class="subTitle">{{ this.subTitle }}</h5>
+    <h3 class="price">{{ this.price }} ₺</h3>
+  </div>
+  <button
+    (click)="functions.addToCart(this.id, this.sharedState.email, $event)"
+  >
+    Sepete Ekle
+  </button>
+</div>

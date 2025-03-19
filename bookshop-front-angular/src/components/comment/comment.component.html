@@ -1,0 +1,9 @@
+<div class="container">
+  <h4 class="owner">{{ this.email }}</h4>
+  <div class="content-container">
+    <p class="content">{{ this.content }}</p>
+    <button *ngIf="this.canUserDelete" (click)="removeComment()">
+      Yorumu sil
+    </button>
+  </div>
+</div>

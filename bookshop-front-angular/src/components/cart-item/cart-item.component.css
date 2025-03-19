@@ -1,0 +1,22 @@
+div.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+img {
+  transform: scale(70%);
+}
+
+div.left {
+  min-width: 130px;
+}
+
+div.right {
+  min-width: 300px;
+}
+
+h5 {
+  max-width: 350px;
+}
