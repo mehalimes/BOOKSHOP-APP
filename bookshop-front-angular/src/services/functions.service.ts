@@ -1,15 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { BookComment } from '../models/BookComment';
+import { Comment } from '../models/Comment';
+import { Cart } from '../models/Cart';
+import { CartItem } from '../models/CartItem';
+import { SharedStateService } from './shared-state.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FunctionsService {
-  constructor(private http: HttpClient) { }
 
-  async updateAllComments(bookId: number): Promise<BookComment[]> {
+  constructor(private http: HttpClient, private sharedState: SharedStateService) { }
+
+  async updateAllComments(bookId: number): Promise<Comment[]> {
     const getAllCommentsResponse = await lastValueFrom(
       this.http.post<string>(
         "https://localhost:7001/getAllCommentsOfABook",
@@ -37,5 +41,23 @@ export class FunctionsService {
       console.log(err);
       window.alert("Could not add to cart.");
     }
+  }
+
+  async updateCart(email: string): Promise<void> {
+    let getCartResponse = await lastValueFrom(
+      this.http.post<string>(
+        "https://localhost:7001/getCartOfAUser",
+        { Email: email },
+        { responseType: 'text' as 'json' }
+      )
+    );
+    let cart = JSON.parse(getCartResponse);
+    let id = cart.id;
+    let totalPrice = cart.totalPrice;
+    let cartItems: CartItem[] = [];
+    cart.cartItems.map((item: any) => {
+      cartItems.push(new CartItem(item.id, item.quantity, item.book));
+    });
+    this.sharedState.cart = new Cart(id, totalPrice, cartItems);
   }
 }

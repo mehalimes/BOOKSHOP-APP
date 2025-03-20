@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { SharedStateService } from '../../services/shared-state.service';
 import { lastValueFrom } from 'rxjs';
+import { FunctionsService } from '../../services/functions.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -19,14 +20,18 @@ export class CartItemComponent {
   @Input() subTitle?: string = "";
   @Input() quantity: number = 0;
 
-  constructor(private http: HttpClient, private sharedState: SharedStateService) { }
+  constructor(
+    private http: HttpClient,
+    private sharedState: SharedStateService,
+    private functions: FunctionsService
+  ) { }
 
   async removeCartItem() {
     let response = await lastValueFrom(this.http.post<string>(
       "https://localhost:7001/removeCartItem",
-      { "CartItemId": this.id, "Email": this.sharedState.email },
+      { CartItemId: this.id, Email: this.sharedState.email },
       { responseType: 'text' as 'json' }
     ));
-    console.log(response);
+    await this.functions.updateCart(this.sharedState.email);
   }
 }

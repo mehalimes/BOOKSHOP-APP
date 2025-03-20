@@ -156,6 +156,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "bookshop.webapi.Controllers.PaymentController",
+    "Method": "MakePayment",
+    "RelativePath": "makePayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentRequest",
+        "Type": "bookshop.webapi.Controllers.PaymentController\u002BPaymentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "bookshop.webapi.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "register",

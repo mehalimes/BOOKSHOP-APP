@@ -1,11 +1,17 @@
 using bookshop.webapi.Contexts;
+using bookshop.webapi.Interfaces;
 using bookshop.webapi.Models;
+using bookshop.webapi.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddHttpClient(); // IHttpClientFactory
+
+builder.Services.AddScoped<IHttpClientService, HttpClientService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

@@ -1,4 +1,4 @@
-export class BookComment {
+export class Comment {
     public id: number = 0;
     public email: string = "";
     public bookId: number = 0;
