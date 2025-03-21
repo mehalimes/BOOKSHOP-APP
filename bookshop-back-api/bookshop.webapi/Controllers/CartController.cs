@@ -1,6 +1,7 @@
 ﻿using bookshop.webapi.Contexts;
 using bookshop.webapi.Dtos;
 using bookshop.webapi.Models;
+using bookshop.webapi.Models.Cart;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

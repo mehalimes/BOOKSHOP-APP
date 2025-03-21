@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using bookshop.webapi.Models.CartFolder;
+using bookshop.webapi.Models.OrderFolder;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
 namespace bookshop.webapi.Models
 {
@@ -13,5 +14,6 @@ namespace bookshop.webapi.Models
         public List<Comment> Comments { get; set; }
         public int CartId { get; set; }
         public Cart Cart { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }

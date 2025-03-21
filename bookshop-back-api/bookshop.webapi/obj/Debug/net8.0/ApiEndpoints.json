@@ -164,22 +164,12 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paymentRequest",
-        "Type": "bookshop.webapi.Controllers.PaymentController\u002BPaymentRequest",
+        "Name": "requestBody",
+        "Type": "bookshop.webapi.Controllers.PaymentController\u002BPaymentBody",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "bookshop.webapi.Controllers.AuthController",

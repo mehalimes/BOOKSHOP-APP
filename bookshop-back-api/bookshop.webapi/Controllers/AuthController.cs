@@ -1,11 +1,12 @@
 ﻿using bookshop.webapi.Contexts;
 using bookshop.webapi.Models;
+using bookshop.webapi.Models.Cart;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bookshop.webapi.Controllers
 {
-    
+
     [ApiController]
     [Route("")]
     public class AuthController
@@ -49,7 +50,7 @@ namespace bookshop.webapi.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> Login([FromBody] LoginRequest request)
         {
-            AppUser user = await userManager.FindByEmailAsync(request.Email);
+            AppUser user = await userManager.FindByEmailAsync(request.Email)!;
 
             if (user is null)
                 return NotFound();

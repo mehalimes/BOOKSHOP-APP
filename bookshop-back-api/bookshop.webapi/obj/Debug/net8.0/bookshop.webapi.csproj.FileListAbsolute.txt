@@ -149,7 +149,6 @@ C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP\bookshop-back-api\books
 C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP\bookshop-back-api\bookshop.webapi\obj\Debug\net8.0\ref\bookshop.webapi.dll
 C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\bin\Debug\net8.0\appsettings.json
-C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\bin\Debug\net8.0\JSON\PaymentBody.json
 C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\bin\Debug\net8.0\bookshop.webapi.staticwebassets.endpoints.json
 C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\bin\Debug\net8.0\bookshop.webapi.exe
 C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\bin\Debug\net8.0\bookshop.webapi.deps.json
@@ -297,3 +296,5 @@ C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\boo
 C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\obj\Debug\net8.0\bookshop.webapi.pdb
 C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\obj\Debug\net8.0\bookshop.webapi.genruntimeconfig.cache
 C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\obj\Debug\net8.0\ref\bookshop.webapi.dll
+C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\bin\Debug\net8.0\Iyzipay.dll
+C:\Users\User\Desktop\ali_masaüstü\Github\BOOKSHOP-APP-2\bookshop-back-api\bookshop.webapi\bin\Debug\net8.0\Newtonsoft.Json.dll

@@ -1,7 +1,8 @@
 using bookshop.webapi.Contexts;
-using bookshop.webapi.Interfaces;
 using bookshop.webapi.Models;
-using bookshop.webapi.Services;
+using bookshop.webapi.Services.Google;
+using bookshop.webapi.Services.HttpClientServiceFolder;
+using bookshop.webapi.Services.Iyzico;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,9 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddHttpClient(); // IHttpClientFactory
-
-builder.Services.AddScoped<IHttpClientService, HttpClientService>();
+builder.Services.AddHttpClient<HttpClientService>();
+builder.Services.AddSingleton<GoogleApiService>();
+builder.Services.AddSingleton<IyzicoService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace bookshop.webapi.Models
+namespace bookshop.webapi.Models.CartFolder
 {
     public class Cart
     {

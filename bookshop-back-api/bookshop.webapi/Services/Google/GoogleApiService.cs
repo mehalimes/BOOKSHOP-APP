@@ -1,17 +1,16 @@
 ﻿using bookshop.webapi.Contexts;
-using bookshop.webapi.Interfaces;
 using bookshop.webapi.Models;
+using bookshop.webapi.Services.HttpClientServiceFolder;
 using System.Text.Json;
 
-namespace bookshop.webapi.Services
+namespace bookshop.webapi.Services.Google
 {
-    public class HttpClientService(IHttpClientFactory httpClientFactory, AppDbContext db) : IHttpClientService
+    public class GoogleApiService(HttpClientService httpService, AppDbContext db, IConfiguration config)
     {
-        public readonly HttpClient _httpClient = httpClientFactory.CreateClient();
-        public async Task<bool> GetBooksFromGoogle()
+        public async Task<bool> GetBooksFromGoogleAndSaveToDatabase()
         {
-            string apiKey = "myapikey";
-            HttpResponseMessage response = await _httpClient.GetAsync($"https://www.googleapis.com/books/v1/volumes?q=design+patterns&key={apiKey}");
+            string googleApiKey = config["Google:ApiKey"];
+            HttpResponseMessage response = await httpService.client.GetAsync($"https://www.googleapis.com/books/v1/volumes?q=design+patterns&key={googleApiKey}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -52,16 +51,6 @@ namespace bookshop.webapi.Services
             {
                 return false;
             }
-        }
-
-        public void MakePayment()
-        {
-            return;
-        }
-
-        public void VerifyPayment()
-        {
-            return;
         }
     }
 }

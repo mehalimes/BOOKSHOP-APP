@@ -1,21 +1,19 @@
 ﻿using bookshop.webapi.Contexts;
-using bookshop.webapi.Interfaces;
-using bookshop.webapi.Models;
+using bookshop.webapi.Services.Google;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 
 namespace bookshop.webapi.Controllers
 {
     [ApiController]
     [Route("")]
-    public class GoogleApiController(IHttpClientService httpService, AppDbContext db) : ControllerBase
+    public class GoogleApiController(GoogleApiService googleService, AppDbContext db) : ControllerBase
     {
         [HttpGet("getBooksFromApi")]
         public async Task<ActionResult> GetBooksFromApi()
         {
-            if (httpService.GetBooksFromGoogle().Result)
+            if (googleService.GetBooksFromGoogleAndSaveToDatabase().Result)
             {
-                return Ok("Books has been fetched from Google successfully.");
+                return Ok("Books has been fetched from Google and saved to database successfully.");
             }
             else
             {

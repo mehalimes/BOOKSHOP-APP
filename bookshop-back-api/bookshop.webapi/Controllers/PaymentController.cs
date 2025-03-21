@@ -1,37 +1,34 @@
-﻿using bookshop.webapi.Interfaces;
+﻿using bookshop.webapi.Contexts;
 using bookshop.webapi.Models;
+using bookshop.webapi.Records;
+using bookshop.webapi.Services.Iyzico;
+using Iyzipay.Model;
+using Iyzipay.Request.V2.Subscription;
 using Microsoft.AspNetCore.Mvc;
-using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
 
 namespace bookshop.webapi.Controllers
 {
     [Route("")]
     [ApiController]
-    public class PaymentController : ControllerBase
+    public class PaymentController(AppDbContext db, IyzicoService iyzicoService) : ControllerBase
     {
-        private IHttpClientService _httpClientService;
-        private string apiKey = "myapikey";
-        private string secretKey = "mysecretkey";
-        private string baseUrl = "https://sandbox-api.iyzipay.com/payment/auth";
-        private string jsonFilePath;
-        private string json;
-
-        public PaymentController(IHttpClientService httpClientService)
-        {
-            _httpClientService = httpClientService;
-            this.jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "JSON", "PaymentBody.json");
-            this.jsonFilePath = Path.GetFullPath(jsonFilePath);
-            this.json = System.IO.File.ReadAllText(jsonFilePath);
-        }
-        public record PaymentRequest(string Email);
-
         [HttpPost("makePayment")]
-        public async Task<ActionResult<string>> MakePayment([FromBody] PaymentRequest paymentRequest)
+        public async Task<ActionResult> MakePayment([FromBody] PaymentBody requestBody)
         {
-            PaymentBody body = JsonSerializer.Deserialize<PaymentBody>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true, NumberHandling = JsonNumberHandling.AllowReadingFromString });
-            return Ok("hello");
+            Task<Payment> payment = iyzicoService.Pay(requestBody);
+            if (!payment.IsCompletedSuccessfully)
+            {
+                return BadRequest("Payment unsuccessfull.");
+            }
+
+            AppUser user = await db.Users
+                .Include(user => user.Cart)
+                .ThenInclude(cart => cart.Items)
+                .FirstOrDefaultAsync(user => user.Email == requestBody.Email);
+
+
+
         }
     }
 }
