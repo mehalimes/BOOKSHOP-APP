@@ -16,25 +16,29 @@ export class RegisterComponent {
     private http: HttpClient,
     public sharedState: SharedStateService,
     private router: Router
-  ) { }
+  ) {
+    this.sharedState.email = "";
+    this.sharedState.username = "";
+  }
 
   async register() {
     try {
       const response = await lastValueFrom(
         this.http.post<string>(
           "https://localhost:7001/register",
-          { Email: this.sharedState.email, Password: this.sharedState.password },
+          { Username: this.sharedState.username, Email: this.sharedState.email, Password: this.sharedState.password },
           { responseType: 'text' as 'json' }
         )
       );
       this.sharedState.email = "";
       this.sharedState.password = "";
+      this.sharedState.isAuthenticated = true;
       this.router.navigate(["/"]);
-      window.alert("Register successfull.");
+      window.alert("Kayıt işlemi başarılı.");
     }
     catch (err) {
       console.log(err);
-      window.alert("Register unsuccessfull.");
+      window.alert("Kayıt işlemi başarısız.");
     }
   }
 }

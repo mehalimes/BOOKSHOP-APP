@@ -1,1 +1,19 @@
-<div class="container"></div>
+<div class="container">
+  <h1>Ödeme Yap</h1>
+  <input placeholder="Ad" [(ngModel)]="this.name" />
+  <input placeholder="Soyad" [(ngModel)]="this.surname" />
+  <label>Kart Bilgileri</label>
+  <input placeholder="Ay" [(ngModel)]="this.expireMonth" />
+  <input placeholder="Yıl" [(ngModel)]="this.expireYear" />
+  <input placeholder="Kart Numarası" [(ngModel)]="this.cardNumber" />
+  <input
+    placeholder="Kart Sahibinin Adı Soyadı"
+    [(ngModel)]="this.cardHolderName"
+  />
+  <input placeholder="CVC" [(ngModel)]="this.cvc" />
+  <label>Kargo Bilgileri</label>
+  <textarea placeholder="Kargo adresi" [(ngModel)]="this.address"></textarea>
+  <input placeholder="Ülke" [(ngModel)]="this.country" />
+  <input placeholder="Şehir" [(ngModel)]="this.city" />
+  <button (click)="confirmPayment()">Onayla</button>
+</div>

@@ -1,8 +1,6 @@
 <div class="container">
   <h1>SEPETİM</h1>
-  <h2 *ngIf="this.sharedState.cart.cartItems.length == 0">
-    Sepet Boş (Aynı Sizin Gibi)
-  </h2>
+  <h2 *ngIf="this.sharedState.cart.cartItems.length == 0">Sepet Boş</h2>
   <app-cart-item
     *ngFor="let item of this.sharedState.cart.cartItems"
     [id]="item.id"
@@ -14,8 +12,8 @@
     [subTitle]="item.book!.subTitle"
     [quantity]="item.quantity"
   ></app-cart-item>
-  <h3>Toplam Fiyat : {{ this.sharedState.cart.totalPrice }} ₺</h3>
+  <h3>Toplam Tutar : {{ this.sharedState.cart.totalPrice }} ₺</h3>
   <ng-container *ngIf="this.sharedState.cart.cartItems.length > 0">
-    <button id="payment" (click)="makePayment()">Ödeme Yap</button>
+    <button id="payment" (click)="navigateToPaymentPage()">Ödeme Yap</button>
   </ng-container>
 </div>

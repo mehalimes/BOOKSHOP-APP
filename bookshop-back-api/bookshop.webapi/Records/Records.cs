@@ -1,6 +1,6 @@
 ﻿namespace bookshop.webapi.Records
 {
-    public record PaymentBody(
+    public record PaymentBody (
         string Email,
         string ExpireMonth,
         string ExpireYear,

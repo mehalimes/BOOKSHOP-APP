@@ -16,25 +16,28 @@ export class LoginComponent {
     private router: Router,
     private http: HttpClient,
     public sharedState: SharedStateService
-  ) { }
+  ) {
+    this.sharedState.email = "";
+  }
 
   async login() {
     try {
-      const response = await lastValueFrom(
+      let response: any = await lastValueFrom(
         this.http.post<string>(
           "https://localhost:7001/login",
           { Email: this.sharedState.email, Password: this.sharedState.password },
           { responseType: 'text' as 'json' }
         )
       );
-      localStorage.setItem("isAuthenticated", "true");
-      localStorage.setItem("email", this.sharedState.email.toString());
+      response = JSON.parse(response);
+      localStorage.setItem("username", response.username);
+      localStorage.setItem("email", response.email);
+      window.alert("Giriş başarılı.");
       this.router.navigate(["/"]);
     }
     catch (err) {
-      localStorage.setItem("isAuthenticated", "false");
       localStorage.removeItem("email");
-      window.alert("Login unsuccessfull.");
+      window.alert("Giriş Başarısız.");
       this.sharedState.email = "";
       this.sharedState.password = "";
       console.log(err);

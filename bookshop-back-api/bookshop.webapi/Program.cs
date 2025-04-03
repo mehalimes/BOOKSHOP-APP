@@ -11,8 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddHttpClient<HttpClientService>();
-builder.Services.AddSingleton<GoogleApiService>();
-builder.Services.AddSingleton<IyzicoService>();
+builder.Services.AddScoped<GoogleApiService>();
+builder.Services.AddScoped<IyzicoService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

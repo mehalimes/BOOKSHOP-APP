@@ -1,4 +1,4 @@
-﻿namespace bookshop.webapi.Dtos
+﻿namespace bookshop.webapi.Dtos.CartDtos
 {
     public class CartDto
     {

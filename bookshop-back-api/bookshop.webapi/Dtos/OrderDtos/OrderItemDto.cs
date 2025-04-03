@@ -1,6 +1,6 @@
-﻿namespace bookshop.webapi.Dtos
+﻿namespace bookshop.webapi.Dtos.OrderDtos
 {
-    public class CartItemDto
+    public class OrderItemDto
     {
         public int Id { get; set; }
         public BookDto Book { get; set; }

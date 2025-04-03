@@ -265,7 +265,7 @@ namespace bookshop.webapi.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("bookshop.webapi.Models.Cart", b =>
+            modelBuilder.Entity("bookshop.webapi.Models.CartFolder.Cart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -281,7 +281,7 @@ namespace bookshop.webapi.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("bookshop.webapi.Models.CartItem", b =>
+            modelBuilder.Entity("bookshop.webapi.Models.CartFolder.CartItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -332,6 +332,69 @@ namespace bookshop.webapi.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("bookshop.webapi.Models.OrderFolder.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("TotalPrice")
+                        .HasColumnType("real");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("bookshop.webapi.Models.OrderFolder.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -387,7 +450,7 @@ namespace bookshop.webapi.Migrations
 
             modelBuilder.Entity("bookshop.webapi.Models.AppUser", b =>
                 {
-                    b.HasOne("bookshop.webapi.Models.Cart", "Cart")
+                    b.HasOne("bookshop.webapi.Models.CartFolder.Cart", "Cart")
                         .WithOne("User")
                         .HasForeignKey("bookshop.webapi.Models.AppUser", "CartId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -396,7 +459,7 @@ namespace bookshop.webapi.Migrations
                     b.Navigation("Cart");
                 });
 
-            modelBuilder.Entity("bookshop.webapi.Models.CartItem", b =>
+            modelBuilder.Entity("bookshop.webapi.Models.CartFolder.CartItem", b =>
                 {
                     b.HasOne("bookshop.webapi.Models.Book", "Book")
                         .WithMany("CartItems")
@@ -404,7 +467,7 @@ namespace bookshop.webapi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("bookshop.webapi.Models.Cart", "Cart")
+                    b.HasOne("bookshop.webapi.Models.CartFolder.Cart", "Cart")
                         .WithMany("Items")
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -434,9 +497,41 @@ namespace bookshop.webapi.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("bookshop.webapi.Models.OrderFolder.Order", b =>
+                {
+                    b.HasOne("bookshop.webapi.Models.AppUser", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("bookshop.webapi.Models.OrderFolder.OrderItem", b =>
+                {
+                    b.HasOne("bookshop.webapi.Models.Book", "Book")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("bookshop.webapi.Models.OrderFolder.Order", "Order")
+                        .WithMany("Items")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("bookshop.webapi.Models.AppUser", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("bookshop.webapi.Models.Book", b =>
@@ -444,14 +539,21 @@ namespace bookshop.webapi.Migrations
                     b.Navigation("CartItems");
 
                     b.Navigation("Comments");
+
+                    b.Navigation("OrderItems");
                 });
 
-            modelBuilder.Entity("bookshop.webapi.Models.Cart", b =>
+            modelBuilder.Entity("bookshop.webapi.Models.CartFolder.Cart", b =>
                 {
                     b.Navigation("Items");
 
                     b.Navigation("User")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("bookshop.webapi.Models.OrderFolder.Order", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

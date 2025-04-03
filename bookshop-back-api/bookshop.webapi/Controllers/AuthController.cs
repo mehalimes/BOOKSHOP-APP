@@ -1,18 +1,18 @@
 ﻿using bookshop.webapi.Contexts;
 using bookshop.webapi.Models;
-using bookshop.webapi.Models.Cart;
+using bookshop.webapi.Models.CartFolder;
+using bookshop.webapi.Models.OrderFolder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bookshop.webapi.Controllers
 {
-
     [ApiController]
     [Route("")]
     public class AuthController
         (UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDbContext db) : ControllerBase
     {
-        public record RegisterRequest(string Email, string Password);
+        public record RegisterRequest(string Username, string Email, string Password);
         public record LoginRequest(string Email, string Password);
 
         [HttpPost("register")]
@@ -27,14 +27,15 @@ namespace bookshop.webapi.Controllers
 
             AppUser newUser = new AppUser()
             {
-                UserName = request.Email,
+                UserName = request.Username,
                 Email = request.Email,
                 EmailConfirmed = true,
                 Cart = new Cart
                 {
                     Items = new List<CartItem>(),
                 },
-                Comments = new List<Comment>()
+                Comments = new List<Comment>(),
+                Orders = new List<Order>()
             };
 
             IdentityResult result = await userManager.CreateAsync(newUser, request.Password);
@@ -58,7 +59,7 @@ namespace bookshop.webapi.Controllers
             var result = await signInManager.PasswordSignInAsync(user, request.Password, true, false);
 
             if (result.Succeeded)
-                return Ok("Sign in successfull.");
+                return Ok(new { Email = user.Email, Username = user.UserName});
             else
                 return BadRequest("Sign in unsuccessfull.");
         }

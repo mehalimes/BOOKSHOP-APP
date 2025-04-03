@@ -1,14 +1,19 @@
 <div class="container">
   <h2>KAYIT OL</h2>
   <input
+    class="username"
+    placeholder="Kullanıcı Adı"
+    [(ngModel)]="this.sharedState.username"
+  />
+  <input
     class="email"
     placeholder="Email"
     [(ngModel)]="this.sharedState.email"
   />
   <input
     class="password"
-    placeholder="Password"
+    placeholder="Şifre"
     [(ngModel)]="this.sharedState.password"
   />
-  <button (click)="register()">Register</button>
+  <button (click)="register()">Kayıt Ol</button>
 </div>

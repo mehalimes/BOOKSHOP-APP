@@ -11,14 +11,9 @@ h2 {
   width: 125px;
 }
 
-input.email {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
-  display: block;
-}
-
-input.password {
+input.password,
+input.email,
+input.username {
   margin-right: auto;
   margin-left: auto;
   display: block;

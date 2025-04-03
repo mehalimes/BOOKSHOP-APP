@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CommentComponent {
   @Input() id: number = 0;
+  @Input() username: string = "";
   @Input() email: string = "";
   @Input() bookId: number = 0;
   @Input() content: string = "";

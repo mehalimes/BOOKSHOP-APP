@@ -22,7 +22,7 @@ export class ProductPageComponent {
     public functions: FunctionsService
   ) {
     this.sharedState.email = localStorage.getItem("email") ?? "";
-    this.sharedState.isAuthenticated = localStorage.getItem("isAuthenticated") == "true" ? true : false;
+    this.sharedState.username = localStorage.getItem("username") ?? "";
   }
 
   book?: Book = undefined;
@@ -39,12 +39,12 @@ export class ProductPageComponent {
         )
       );
 
+      this.sharedState.isAuthenticated = this.sharedState.email == "" ? false : true;
       this.book = new Book(JSON.parse(getBookByIdResponse));
       this.sharedState.allComments = [];
       const serviceResponse = await this.functions.updateAllComments(this.id);
       this.sharedState.allComments = serviceResponse;
       console.log(serviceResponse)
-      console.log(this.sharedState.allComments)
     }
     catch (err) {
       console.log(err);
@@ -59,12 +59,16 @@ export class ProductPageComponent {
           { responseType: 'text' as 'json' }
         )
       );
+
       localStorage.removeItem("email");
-      localStorage.setItem("isAuthenticated", "false");
-      this.sharedState.isAuthenticated = localStorage.getItem("isAuthenticated") == "true" ? true : false;
+      localStorage.removeItem("username");
+
       this.sharedState.email = localStorage.getItem("email") ?? "";
+      this.sharedState.username = localStorage.getItem("username") ?? "";
       this.sharedState.password = "";
+      this.sharedState.isAuthenticated = this.sharedState.email == "" ? false : true;
       this.sharedState.allComments = await this.functions.updateAllComments(this.id);
+
       console.log("User signed out.")
     }
     catch (err) {

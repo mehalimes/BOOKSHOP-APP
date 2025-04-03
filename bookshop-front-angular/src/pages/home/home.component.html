@@ -8,7 +8,7 @@
       Kayıt ol
     </a>
     <h4 *ngIf="this.sharedState.isAuthenticated">
-      {{ this.sharedState.email }}
+      {{ this.sharedState.username }}
     </h4>
     <a *ngIf="this.sharedState.isAuthenticated" routerLink="/cart">Sepetim</a>
     <a *ngIf="this.sharedState.isAuthenticated" routerLink="/orders"

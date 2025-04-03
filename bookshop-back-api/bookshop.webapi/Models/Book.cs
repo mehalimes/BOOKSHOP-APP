@@ -1,4 +1,5 @@
-﻿using bookshop.webapi.Models.Cart;
+﻿using bookshop.webapi.Models.CartFolder;
+using bookshop.webapi.Models.OrderFolder;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,5 +18,6 @@ namespace bookshop.webapi.Models
         public string SubTitle { get; set; }
         public List<Comment> Comments { get; set; }
         public List<CartItem> CartItems { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
     }
 }

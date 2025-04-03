@@ -21,7 +21,7 @@ export class HomeComponent {
     private http: HttpClient
   ) {
     this.sharedState.email = localStorage.getItem("email") ?? "";
-    this.sharedState.isAuthenticated = localStorage.getItem("isAuthenticated") == "true" ? true : false;
+    this.sharedState.username = localStorage.getItem("username") ?? "";
   }
 
   async ngOnInit() {
@@ -32,9 +32,12 @@ export class HomeComponent {
           { responseType: 'text' as 'json' }
         )
       );
+
       JSON.parse(response).map((item: any) => {
         this.allBooks.push(new Book(item));
       });
+
+      this.sharedState.isAuthenticated = this.sharedState.email == "" ? false : true;
     }
     catch (err) {
       console.log(err);
@@ -50,14 +53,14 @@ export class HomeComponent {
         )
       );
       localStorage.removeItem("email");
-      localStorage.setItem("isAuthenticated", "false");
-      this.sharedState.isAuthenticated = localStorage.getItem("isAuthenticated") == "true" ? true : false;
+      localStorage.removeItem("username");
       this.sharedState.email = localStorage.getItem("email") ?? "";
+      this.sharedState.username = localStorage.getItem("username") ?? "";
       this.sharedState.password = "";
-      console.log("User signed out.")
+      this.sharedState.isAuthenticated = false;
     }
     catch (err) {
-      console.log("Could'nt sign out.");
+      console.log(err);
     }
   }
 }

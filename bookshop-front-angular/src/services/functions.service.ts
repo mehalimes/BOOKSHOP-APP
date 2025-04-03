@@ -21,6 +21,7 @@ export class FunctionsService {
         { responseType: 'text' as 'json' }
       )
     );
+    console.log(JSON.parse(getAllCommentsResponse));
     return JSON.parse(getAllCommentsResponse);
   }
 
@@ -35,11 +36,11 @@ export class FunctionsService {
         )
       );
       console.log(addToCartResponse);
-      window.alert("Added to cart successfully.");
+      window.alert("Sepete eklendi.");
     }
     catch (err) {
       console.log(err);
-      window.alert("Could not add to cart.");
+      window.alert("Sepete eklenemedi.");
     }
   }
 

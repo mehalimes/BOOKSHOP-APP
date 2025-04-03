@@ -32,6 +32,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "bookshop.webapi.Controllers.OrderController",
+    "Method": "CancelOrder",
+    "RelativePath": "cancelOrder",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Controllers.OrderController\u002BCancelOrderRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bookshop.webapi.Controllers.OrderController",
+    "Method": "CreateOrder",
+    "RelativePath": "createOrder",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Records.PaymentBody",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "bookshop.webapi.Controllers.BookController",
     "Method": "GetAllBooks",
     "RelativePath": "getAllBooks",
@@ -68,6 +100,32 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[bookshop.webapi.Dtos.CommentDto, bookshop.webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "bookshop.webapi.Controllers.OrderController",
+    "Method": "GetAllOrders",
+    "RelativePath": "getAllOrders",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Controllers.OrderController\u002BGetAllOrdersRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[bookshop.webapi.Dtos.OrderDtos.OrderDto, bookshop.webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -129,7 +187,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[bookshop.webapi.Dtos.CartDto, bookshop.webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[bookshop.webapi.Dtos.CartDtos.CartDto, bookshop.webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -150,22 +208,6 @@
       {
         "Name": "request",
         "Type": "bookshop.webapi.Controllers.AuthController\u002BLoginRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "bookshop.webapi.Controllers.PaymentController",
-    "Method": "MakePayment",
-    "RelativePath": "makePayment",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "requestBody",
-        "Type": "bookshop.webapi.Controllers.PaymentController\u002BPaymentBody",
         "IsRequired": true
       }
     ],

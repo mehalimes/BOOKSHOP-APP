@@ -27,6 +27,7 @@ namespace bookshop.webapi.Controllers
                     Id = c.Id,
                     Content = c.Content,
                     Email = c.User.Email,
+                    Username = c.User.UserName,
                     BookId = c.Book.Id
                 }).ToList();
 

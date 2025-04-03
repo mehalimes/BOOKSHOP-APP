@@ -23,12 +23,12 @@ namespace bookshop.webapi.Services.Iyzico
             secretKey = _config["Iyzipay:SecretKey"];
         }
 
-        public async Task<Payment> Pay(PaymentBody requestBody)
+        public async Task<Payment> MakePayment(PaymentBody param)
         {
             AppUser user = _db.Users
                 .Include(user => user.Cart)
                 .ThenInclude(cart => cart.Items)
-                .FirstOrDefault(user => user.Email == requestBody.Email)!;
+                .FirstOrDefault(user => user.Email == param.Email)!;
 
             Options options = new Options();
             options.ApiKey = apiKey;
@@ -47,20 +47,20 @@ namespace bookshop.webapi.Services.Iyzico
             request.PaymentGroup = PaymentGroup.PRODUCT.ToString();
 
             PaymentCard paymentCard = new PaymentCard();
-            paymentCard.CardHolderName = requestBody.CardHolderName;
-            paymentCard.CardNumber = requestBody.CardNumber;
-            paymentCard.ExpireMonth = requestBody.ExpireMonth;
-            paymentCard.ExpireYear = requestBody.ExpireYear;
-            paymentCard.Cvc = requestBody.CVC;
+            paymentCard.CardHolderName = param.CardHolderName;
+            paymentCard.CardNumber = param.CardNumber;
+            paymentCard.ExpireMonth = param.ExpireMonth;
+            paymentCard.ExpireYear = param.ExpireYear;
+            paymentCard.Cvc = param.CVC;
             paymentCard.RegisterCard = 0;
             request.PaymentCard = paymentCard;
 
             Buyer buyer = new Buyer();
             buyer.Id = "BY789";
-            buyer.Name = requestBody.Name;
-            buyer.Surname = requestBody.Surname;
+            buyer.Name = param.Name;
+            buyer.Surname = param.Surname;
             buyer.GsmNumber = "+905350000000";
-            buyer.Email = requestBody.Email;
+            buyer.Email = param.Email;
             buyer.IdentityNumber = "74300864791";
             buyer.LastLoginDate = "2015-10-05 12:43:35";
             buyer.RegistrationDate = "2013-04-21 15:12:09";
@@ -72,18 +72,18 @@ namespace bookshop.webapi.Services.Iyzico
             request.Buyer = buyer;
 
             Address shippingAddress = new Address();
-            shippingAddress.ContactName = requestBody.Name + " " + requestBody.Surname;
-            shippingAddress.City = requestBody.City;
-            shippingAddress.Country = requestBody.Country;
-            shippingAddress.Description = requestBody.AddressDescription;
+            shippingAddress.ContactName = param.Name + " " + param.Surname;
+            shippingAddress.City = param.City;
+            shippingAddress.Country = param.Country;
+            shippingAddress.Description = param.AddressDescription;
             shippingAddress.ZipCode = "34742";
             request.ShippingAddress = shippingAddress;
 
             Address billingAddress = new Address();
-            billingAddress.ContactName = requestBody.Name + " " + requestBody.Surname;
-            billingAddress.City = requestBody.City;
-            billingAddress.Country = requestBody.Country;
-            billingAddress.Description = requestBody.AddressDescription;
+            billingAddress.ContactName = param.Name + " " + param.Surname;
+            billingAddress.City = param.City;
+            billingAddress.Country = param.Country;
+            billingAddress.Description = param.AddressDescription;
             billingAddress.ZipCode = "34742";
             request.BillingAddress = billingAddress;
 
@@ -121,9 +121,22 @@ namespace bookshop.webapi.Services.Iyzico
             return payment;
         }
 
-        public async Task<bool> Refund()
+        public async Task<Refund> MakeRefund(string PaymentId, string Price)
         {
-            return true;
+            Options options = new Options();
+            options.ApiKey = apiKey;
+            options.SecretKey = secretKey;
+            options.BaseUrl = "https://sandbox-api.iyzipay.com";
+
+            CreateAmountBasedRefundRequest request = new CreateAmountBasedRefundRequest();
+            request.Locale = Locale.TR.ToString();
+            request.ConversationId = "--";
+            request.Ip = "85.34.78.112";
+            request.Price = Price;
+            request.PaymentId = PaymentId;
+
+            Refund amountBasedRefund = await Refund.CreateAmountBasedRefundRequest(request, options);
+            return amountBasedRefund;
         }
     }
 }

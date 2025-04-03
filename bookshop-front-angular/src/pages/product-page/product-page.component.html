@@ -6,12 +6,16 @@
   <a *ngIf="!this.sharedState.isAuthenticated" routerLink="/register">
     Kayıt ol
   </a>
-  <h4 *ngIf="this.sharedState.isAuthenticated">{{ this.sharedState.email }}</h4>
+  <h4 *ngIf="this.sharedState.isAuthenticated">
+    {{ this.sharedState.username }}
+  </h4>
   <a *ngIf="this.sharedState.isAuthenticated" routerLink="/cart">Sepetim</a>
   <a *ngIf="this.sharedState.isAuthenticated" routerLink="/orders"
     >Siparişlerim</a
   >
-  <button *ngIf="sharedState.isAuthenticated" (click)="signOut()">Çıkış</button>
+  <button *ngIf="this.sharedState.isAuthenticated" (click)="signOut()">
+    Çıkış
+  </button>
   <div class="content-container">
     <div class="product-container">
       <img src="{{ this.book?.publicId }}" />
@@ -32,6 +36,7 @@
         <app-comment
           *ngFor="let comment of sharedState.allComments"
           [id]="comment.id"
+          [username]="comment.username"
           [email]="comment.email"
           [content]="comment.content"
           [bookId]="comment.bookId"
