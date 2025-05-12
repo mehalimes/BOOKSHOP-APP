@@ -28,7 +28,7 @@ export class HomeComponent {
     try {
       const response = await lastValueFrom(
         this.http.get<string>(
-          "https://localhost:7001/getAllBooks",
+          "https://localhost:5001/getAllBooks",
           { responseType: 'text' as 'json' }
         )
       );
@@ -48,7 +48,7 @@ export class HomeComponent {
     try {
       const response = await lastValueFrom(
         this.http.get<string>(
-          "https://localhost:7001/signout",
+          "https://localhost:5001/signout",
           { responseType: 'text' as 'json' }
         )
       );

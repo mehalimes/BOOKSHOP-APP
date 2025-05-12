@@ -25,7 +25,7 @@ export class RegisterComponent {
     try {
       const response = await lastValueFrom(
         this.http.post<string>(
-          "https://localhost:7001/register",
+          "https://localhost:5001/register",
           { Username: this.sharedState.username, Email: this.sharedState.email, Password: this.sharedState.password },
           { responseType: 'text' as 'json' }
         )

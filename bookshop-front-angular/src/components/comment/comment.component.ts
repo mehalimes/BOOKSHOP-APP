@@ -33,7 +33,7 @@ export class CommentComponent {
     try {
       const removeCommentResponse = await lastValueFrom(
         this.http.post<string>(
-          "https://localhost:7001/removeAComment",
+          "https://localhost:5001/removeAComment",
           { commentId: this.id },
           { responseType: 'text' as 'json' }
         )

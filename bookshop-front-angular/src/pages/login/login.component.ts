@@ -24,7 +24,7 @@ export class LoginComponent {
     try {
       let response: any = await lastValueFrom(
         this.http.post<string>(
-          "https://localhost:7001/login",
+          "https://localhost:5001/login",
           { Email: this.sharedState.email, Password: this.sharedState.password },
           { responseType: 'text' as 'json' }
         )

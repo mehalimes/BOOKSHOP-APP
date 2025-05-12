@@ -28,7 +28,7 @@ export class CartItemComponent {
 
   async removeCartItem() {
     let response = await lastValueFrom(this.http.post<string>(
-      "https://localhost:7001/removeCartItem",
+      "https://localhost:5001/removeCartItem",
       { CartItemId: this.id, Email: this.sharedState.email },
       { responseType: 'text' as 'json' }
     ));

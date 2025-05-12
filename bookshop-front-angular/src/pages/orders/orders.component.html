@@ -1,4 +1,30 @@
 <div class="container">
   <h1>SİPARİŞLERİM</h1>
-  <div class="sub-container"></div>
+  <div class="order-container" *ngFor="let order of this.sharedState.orders">
+    <div class="left">
+      <div class="order-item-container" *ngFor="let item of order.items">
+        <div class="order-item-container-left">
+          <img src="{{ item.book?.publicId }}" />
+        </div>
+        <div class="order-item-container-right">
+          <div class="isbn_13">{{ item.book?.isbn_13 }}</div>
+          <div class="author">{{ item.book?.author }}</div>
+          <h4 class="title">{{ item.book?.title }}</h4>
+          <h5 class="subTitle">{{ item.book?.subTitle }}</h5>
+          <div class="price">{{ item.book?.price }} ₺</div>
+          <div class="quantity">{{ item.quantity }} Adet</div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="total-price">
+        Toplam Sipariş Tutarı : {{ order.totalPrice }} ₺
+      </div>
+      <div class="address">Sipariş Adresi : {{ order.address }}</div>
+      <div class="country">Ülke : {{ order.country }}</div>
+      <div class="city">Şehir : {{ order.city }}</div>
+      <button (click)="refund(order.id)">Geri İade Et</button>
+    </div>
+  </div>
+  <h2 *ngIf="this.sharedState.orders.length === 0">Henüz Sipariş Yok.</h2>
 </div>

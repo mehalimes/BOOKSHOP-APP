@@ -35,7 +35,7 @@ export class PaymentComponent {
     try {
       const paymentResponse = await lastValueFrom(
         this.http.post<string>(
-          "https://localhost:7001/createOrder",
+          "https://localhost:5001/createOrder",
           {
             Email: this.sharedState.email,
             ExpireMonth: this.expireMonth,

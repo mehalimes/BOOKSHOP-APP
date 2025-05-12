@@ -33,7 +33,7 @@ export class ProductPageComponent {
     try {
       const getBookByIdResponse = await lastValueFrom(
         this.http.post<string>(
-          "https://localhost:7001/getBookById",
+          "https://localhost:5001/getBookById",
           { Id: this.id },
           { responseType: 'text' as 'json' }
         )
@@ -55,7 +55,7 @@ export class ProductPageComponent {
     try {
       const response = await lastValueFrom(
         this.http.get<string>(
-          "https://localhost:7001/signout",
+          "https://localhost:5001/signout",
           { responseType: 'text' as 'json' }
         )
       );
@@ -84,7 +84,7 @@ export class ProductPageComponent {
     try {
       const response = await lastValueFrom(
         this.http.post<string>(
-          "https://localhost:7001/addCommentToABook",
+          "https://localhost:5001/addCommentToABook",
           { email: this.sharedState.email, bookId: this.book?.id, content: this.commentTextArea },
           { responseType: 'text' as 'json' }
         )

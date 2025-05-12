@@ -16,7 +16,7 @@ export class FunctionsService {
   async updateAllComments(bookId: number): Promise<Comment[]> {
     const getAllCommentsResponse = await lastValueFrom(
       this.http.post<string>(
-        "https://localhost:7001/getAllCommentsOfABook",
+        "https://localhost:5001/getAllCommentsOfABook",
         { bookId: bookId },
         { responseType: 'text' as 'json' }
       )
@@ -30,7 +30,7 @@ export class FunctionsService {
       event.stopPropagation();
       const addToCartResponse = await lastValueFrom(
         this.http.post<string>(
-          "https://localhost:7001/addToCart",
+          "https://localhost:5001/addToCart",
           { BookId: bookId, Email: email },
           { responseType: 'text' as 'json' }
         )
@@ -47,7 +47,7 @@ export class FunctionsService {
   async updateCart(email: string): Promise<void> {
     let getCartResponse = await lastValueFrom(
       this.http.post<string>(
-        "https://localhost:7001/getCartOfAUser",
+        "https://localhost:5001/getCartOfAUser",
         { Email: email },
         { responseType: 'text' as 'json' }
       )
