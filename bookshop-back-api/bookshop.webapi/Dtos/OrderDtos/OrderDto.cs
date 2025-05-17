@@ -1,8 +1,11 @@
-﻿namespace bookshop.webapi.Dtos.OrderDtos
+﻿using bookshop.webapi.Models;
+
+namespace bookshop.webapi.Dtos.OrderDtos
 {
     public class OrderDto
     {
         public int Id { get; set; }
+        public AppUserDto User { get; set; }
         public List<OrderItemDto> Items { get; set; }
         public float TotalPrice { get; set; }
         public string Address { get; set; }

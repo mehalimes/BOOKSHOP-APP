@@ -32,6 +32,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "bookshop.webapi.Controllers.AdminController",
+    "Method": "AdminLogin",
+    "RelativePath": "adminLogin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Controllers.AdminController\u002BAdminLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "bookshop.webapi.Models.AppUser",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "bookshop.webapi.Controllers.OrderController",
     "Method": "CancelOrder",
     "RelativePath": "cancelOrder",
@@ -188,6 +214,26 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[bookshop.webapi.Dtos.CartDtos.CartDto, bookshop.webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "bookshop.webapi.Controllers.AdminController",
+    "Method": "GetOrdersOfAllUsers",
+    "RelativePath": "getOrdersOfAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[bookshop.webapi.Models.OrderFolder.Order, bookshop.webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

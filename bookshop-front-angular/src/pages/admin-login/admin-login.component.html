@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>ADMİN</h2>
+  <input
+    class="email"
+    placeholder="Email"
+    [(ngModel)]="this.sharedState.adminEmail"
+  />
+  <input
+    class="password"
+    placeholder="Şifre"
+    [(ngModel)]="this.sharedState.adminPassword"
+  />
+  <button (click)="adminLogin()">Giriş Yap</button>
+</div>

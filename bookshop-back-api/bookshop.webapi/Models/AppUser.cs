@@ -15,5 +15,6 @@ namespace bookshop.webapi.Models
         public int CartId { get; set; }
         public Cart Cart { get; set; }
         public List<Order> Orders { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

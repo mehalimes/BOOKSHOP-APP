@@ -20,6 +20,7 @@ export class OrdersComponent {
 
   async ngOnInit() {
     try {
+      this.sharedState.orders = [];
       const getAllOrdersResponse = await lastValueFrom(
         this.http.post<string>(
           "https://localhost:5001/getAllOrders",

@@ -1,6 +1,9 @@
 <div class="container">
-  <h1>SİPARİŞLERİM</h1>
-  <div class="order-container" *ngFor="let order of this.sharedState.orders">
+  <h1>ADMİN</h1>
+  <div
+    class="order-container"
+    *ngFor="let order of this.sharedState.adminOrders"
+  >
     <div class="left">
       <div class="order-item-container" *ngFor="let item of order.items">
         <div class="order-item-container-left">
@@ -21,11 +24,14 @@
         <strong>Toplam Sipariş Tutarı :</strong> {{ order.totalPrice }} ₺
       </div>
       <div class="address">
-        <strong>Sipariş Adresi : </strong>{{ order.address }}
+        <strong>Sipariş Adresi :</strong> {{ order.address }}
       </div>
       <div class="country"><strong>Ülke : </strong>{{ order.country }}</div>
-      <div class="city"><strong>Şehir : </strong>{{ order.city }}</div>
+      <div class="city"><strong>Şehir :</strong> {{ order.city }}</div>
     </div>
   </div>
-  <h2 *ngIf="this.sharedState.orders.length === 0">Henüz Sipariş Yok.</h2>
+  <h2 *ngIf="this.sharedState.adminOrders.length === 0">Henüz Sipariş Yok.</h2>
+  <h3>
+    <strong>TOPLAM GELİR : {{}}</strong>
+  </h3>
 </div>
