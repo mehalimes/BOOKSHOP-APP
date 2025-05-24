@@ -2,8 +2,8 @@
 using bookshop.webapi.Dtos;
 using bookshop.webapi.Dtos.OrderDtos;
 using bookshop.webapi.Models;
+using bookshop.webapi.Models.CartFolder;
 using bookshop.webapi.Models.OrderFolder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +19,16 @@ namespace bookshop.webapi.Controllers
     ) : ControllerBase
     {
         public record AdminLoginRequest(string Email, string Password);
+        public record AddBookToDbRequest(
+            string ISBN_13,
+            string PublicId,
+            string Author,
+            float Price,
+            string Title, 
+            string SubTitle
+        );
+
+        public record RemoveBookRequest(int Id);
 
         [HttpPost("adminLogin")]
         public async Task<ActionResult<AppUser>> AdminLogin([FromBody] AdminLoginRequest request)
@@ -77,6 +87,53 @@ namespace bookshop.webapi.Controllers
             }).ToList();
 
             return Ok(orderDtos);
+        }
+
+        [HttpGet("getTotalRevenue")]
+        public async Task<ActionResult<float>> GetTotalRevenue()
+        {
+            float totalRevenue = db.Orders.Sum(x => x.TotalPrice);
+
+            return Ok(totalRevenue);
+        }
+
+        [HttpPost("addBookToDb")]
+        public async Task<ActionResult> AddBookToDb([FromBody] AddBookToDbRequest request)
+        {
+            Book newBook = new Book
+            {
+                ISBN_13 = request.ISBN_13,
+                PublicId = request.PublicId,
+                Author = request.Author,
+                Price = request.Price,
+                Title = request.Title,
+                SubTitle = request.SubTitle,
+            };
+
+            db.Books.Add(newBook);
+            db.SaveChangesAsync();
+
+            return Ok("Book added successfully.");
+        }
+
+        [HttpGet("getAllBooksToAdmin")]
+        public async Task<ActionResult<List<Book>>> GetAllBooksToAdmin()
+        {
+            List<Book> books = db.Books.ToList();
+
+            return Ok(books);
+        }
+
+        [HttpPost("removeBook")]
+        public async Task<ActionResult> RemoveBook([FromBody] RemoveBookRequest request)
+        {
+            Book bookToBeDeleted = db.Books.Find(request.Id);
+
+            db.Books.Remove(bookToBeDeleted);
+
+            db.SaveChanges();
+
+            return Ok("Book has been deleted successfully.");
         }
     }
 }

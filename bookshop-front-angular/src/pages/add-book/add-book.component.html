@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="sub-container">
+    <h1>Kitap Ekle</h1>
+    <input type="text" [(ngModel)]="this.ISBN_13" placeholder="ISBN 13" />
+    <input type="text" [(ngModel)]="this.PublicId" placeholder="Resim Linki" />
+    <input type="text" [(ngModel)]="this.Author" placeholder="Yazar" />
+    <input type="text" [(ngModel)]="this.Price" placeholder="Fiyat" />
+    <input type="text" [(ngModel)]="this.Title" placeholder="Başlık" />
+    <input type="text" [(ngModel)]="this.SubTitle" placeholder="Alt Başlık" />
+    <button (click)="addBook()">Kitap Ekle</button>
+  </div>
+</div>

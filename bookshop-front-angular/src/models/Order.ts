@@ -8,6 +8,8 @@ export class Order {
     public country: string = "";
     public city: string = "";
     public paymentId: string = "";
+    public userName?: string = "";
+    public email?: string = "";
 
     constructor(object: any) {
         this.id = object.id;
@@ -17,5 +19,7 @@ export class Order {
         this.country = object.country;
         this.city = object.city;
         this.paymentId = object.paymentId;
+        this.email = object.user?.email;
+        this.userName = object.user?.userName;
     }
 }

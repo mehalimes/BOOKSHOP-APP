@@ -1,0 +1,18 @@
+<div class="container">
+  <div>
+    <h2>Kitap Sil</h2>
+    <main>
+      <app-product
+        *ngFor="let book of allBooks"
+        [id]="book.id"
+        [isbn_13]="book.isbn_13"
+        [publicId]="book.publicId"
+        [author]="book.author"
+        [price]="book.price"
+        [title]="book.title"
+        [subTitle]="book.subTitle"
+        [isInAdmin]="true"
+      ></app-product>
+    </main>
+  </div>
+</div>

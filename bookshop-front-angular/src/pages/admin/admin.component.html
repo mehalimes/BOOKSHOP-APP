@@ -1,5 +1,6 @@
 <div class="container">
-  <h1>ADMİN</h1>
+  <h1 id="adminTitle">ADMİN</h1>
+  <h3 id="allOrders"><strong>Tüm Siparişler</strong></h3>
   <div
     class="order-container"
     *ngFor="let order of this.sharedState.adminOrders"
@@ -26,12 +27,20 @@
       <div class="address">
         <strong>Sipariş Adresi :</strong> {{ order.address }}
       </div>
-      <div class="country"><strong>Ülke : </strong>{{ order.country }}</div>
+      <div class="country"><strong>Ülke : </strong> {{ order.country }}</div>
       <div class="city"><strong>Şehir :</strong> {{ order.city }}</div>
+      <div class="username">
+        <strong>Kullanıcı : </strong>{{ order.userName }}
+      </div>
+      <div class="email"><strong>Email : </strong>{{ order.email }}</div>
     </div>
   </div>
   <h2 *ngIf="this.sharedState.adminOrders.length === 0">Henüz Sipariş Yok.</h2>
-  <h3>
-    <strong>TOPLAM GELİR : {{}}</strong>
+  <h3 id="totalRevenue">
+    <strong>Toplam Gelir : {{ this.totalRevenue }} ₺</strong>
   </h3>
+  <div class="bottom">
+    <button (click)="navigateToDeleteBook()">Kitap Sil</button>
+    <button (click)="navigateToAddBook()">Kitap Ekle</button>
+  </div>
 </div>

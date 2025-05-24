@@ -76,10 +76,6 @@ export class ProductPageComponent {
     }
   }
 
-  addToCart() {
-
-  }
-
   async addComment() {
     try {
       const response = await lastValueFrom(

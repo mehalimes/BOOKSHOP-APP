@@ -4,6 +4,7 @@ import { SharedStateService } from '../../services/shared-state.service';
 import { lastValueFrom } from 'rxjs';
 import { Order } from '../../models/Order';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -18,7 +19,7 @@ export class AdminComponent {
   constructor(
     private http: HttpClient,
     public sharedState: SharedStateService,
-
+    private router: Router
   ) { }
 
   async ngOnInit() {
@@ -33,10 +34,26 @@ export class AdminComponent {
       JSON.parse(getAllOrdersResponse).map((order: any) => {
         this.sharedState.adminOrders.push(new Order(order));
       });
-      console.log(this.sharedState.adminOrders);
+
+      const getTotalRevenueResponse = await lastValueFrom(
+        this.http.get<string>(
+          "https://localhost:5001/getTotalRevenue",
+          { responseType: 'text' as 'json' }
+        )
+      );
+
+      this.totalRevenue = Number(getTotalRevenueResponse);
     }
     catch (err) {
       console.log("ERROR");
     }
+  }
+
+  navigateToDeleteBook(): void {
+    this.router.navigate(["/deleteBook"]);
+  }
+
+  navigateToAddBook(): void {
+    this.router.navigate(["/addBook"]);
   }
 }

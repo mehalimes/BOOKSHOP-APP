@@ -1,3 +1,8 @@
 div.container {
   width: 300px;
 }
+
+img {
+  width: 128px;
+  height: 158px;
+}

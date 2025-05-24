@@ -27,11 +27,16 @@ export class CartItemComponent {
   ) { }
 
   async removeCartItem() {
-    let response = await lastValueFrom(this.http.post<string>(
-      "https://localhost:5001/removeCartItem",
-      { CartItemId: this.id, Email: this.sharedState.email },
-      { responseType: 'text' as 'json' }
-    ));
-    await this.functions.updateCart(this.sharedState.email);
+    try {
+      let response = await lastValueFrom(this.http.post<string>(
+        "https://localhost:5001/removeCartItem",
+        { CartItemId: this.id, Email: this.sharedState.email },
+        { responseType: 'text' as 'json' }
+      ));
+      await this.functions.updateCart(this.sharedState.email);
+    }
+    catch (err) {
+      console.log(err);
+    }
   }
 }

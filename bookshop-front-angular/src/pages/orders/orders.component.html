@@ -13,6 +13,7 @@
           <h5 class="subTitle">{{ item.book?.subTitle }}</h5>
           <div class="price">{{ item.book?.price }} ₺</div>
           <div class="quantity">{{ item.quantity }} Adet</div>
+          <button (click)="refund(item.id)">Geri İade Et</button>
         </div>
       </div>
     </div>

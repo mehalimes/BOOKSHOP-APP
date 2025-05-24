@@ -6,7 +6,10 @@ div.container {
 }
 
 img {
-  transform: scale(70%);
+  width: 128px;
+  height: 171px;
+  margin-right: 30px;
+  margin-bottom: 20px;
 }
 
 div.left {

@@ -31,18 +31,6 @@ div.order-container {
   flex-direction: row;
 }
 
-h1 {
-  width: fit-content;
-  height: fit-content;
-  margin-left: calc(50% - 116px);
-}
-
-h2 {
-  width: fit-content;
-  margin-top: 30px;
-  margin-left: calc(50% - 97.5px);
-}
-
 div.order-container {
   border: 1px solid black;
   border-radius: 30px;
@@ -61,7 +49,30 @@ div.order-container {
   margin-left: calc(50% - 400px);
 }
 
-h3 {
+h3#allOrders {
   margin-top: 30px;
   margin-bottom: 30px;
+  margin-left: calc(50% - 60.5px);
+}
+
+h1#adminTitle {
+  width: fit-content;
+  margin-left: calc(50% - 55.5px);
+}
+
+h3#totalRevenue {
+  margin-left: calc(50% - 75px);
+  margin-bottom: 30px;
+}
+
+div.bottom {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.bottom > button {
+  margin: 10px;
 }

@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "bookshop.webapi.Controllers.AdminController",
+    "Method": "AddBookToDb",
+    "RelativePath": "addBookToDb",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Controllers.AdminController\u002BAddBookToDbRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "bookshop.webapi.Controllers.CommentController",
     "Method": "AddCommentToABook",
     "RelativePath": "addCommentToABook",
@@ -93,6 +109,26 @@
     "ContainingType": "bookshop.webapi.Controllers.BookController",
     "Method": "GetAllBooks",
     "RelativePath": "getAllBooks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[bookshop.webapi.Models.Book, bookshop.webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "bookshop.webapi.Controllers.AdminController",
+    "Method": "GetAllBooksToAdmin",
+    "RelativePath": "getAllBooksToAdmin",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -244,6 +280,26 @@
     ]
   },
   {
+    "ContainingType": "bookshop.webapi.Controllers.AdminController",
+    "Method": "GetTotalRevenue",
+    "RelativePath": "getTotalRevenue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Single",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "bookshop.webapi.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "login",
@@ -286,6 +342,22 @@
       {
         "Name": "request",
         "Type": "bookshop.webapi.Controllers.CommentController\u002BRemoveCommentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "bookshop.webapi.Controllers.AdminController",
+    "Method": "RemoveBook",
+    "RelativePath": "removeBook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "bookshop.webapi.Controllers.AdminController\u002BRemoveBookRequest",
         "IsRequired": true
       }
     ],
