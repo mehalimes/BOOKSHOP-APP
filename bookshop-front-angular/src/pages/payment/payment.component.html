@@ -1,19 +1,22 @@
 <div class="container">
-  <h1>Ödeme Yap</h1>
-  <input placeholder="Ad" [(ngModel)]="this.name" />
-  <input placeholder="Soyad" [(ngModel)]="this.surname" />
-  <label>Kart Bilgileri</label>
-  <input placeholder="Ay" [(ngModel)]="this.expireMonth" />
-  <input placeholder="Yıl" [(ngModel)]="this.expireYear" />
-  <input placeholder="Kart Numarası" [(ngModel)]="this.cardNumber" />
+  <h1>Make Payment</h1>
+  <input placeholder="Name" [(ngModel)]="this.name" />
+  <input placeholder="Surname" [(ngModel)]="this.surname" />
+  <label>Card Informations</label>
+  <input placeholder="Month" [(ngModel)]="this.expireMonth" />
+  <input placeholder="Year" [(ngModel)]="this.expireYear" />
+  <input placeholder="Card Number" [(ngModel)]="this.cardNumber" />
   <input
-    placeholder="Kart Sahibinin Adı Soyadı"
+    placeholder="Card Holder's Name and Surname"
     [(ngModel)]="this.cardHolderName"
   />
   <input placeholder="CVC" [(ngModel)]="this.cvc" />
-  <label>Kargo Bilgileri</label>
-  <textarea placeholder="Kargo adresi" [(ngModel)]="this.address"></textarea>
-  <input placeholder="Ülke" [(ngModel)]="this.country" />
-  <input placeholder="Şehir" [(ngModel)]="this.city" />
-  <button (click)="confirmPayment()">Onayla</button>
+  <label>Delivery Informations</label>
+  <textarea
+    placeholder="Delivery Address"
+    [(ngModel)]="this.address"
+  ></textarea>
+  <input placeholder="Country" [(ngModel)]="this.country" />
+  <input placeholder="City" [(ngModel)]="this.city" />
+  <button (click)="confirmPayment()">Confirm Payment</button>
 </div>

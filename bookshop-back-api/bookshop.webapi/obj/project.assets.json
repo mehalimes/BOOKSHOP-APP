@@ -4344,11 +4344,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\ali_masaüstü\\Github\\BOOKSHOP-APP-2\\bookshop-back-api\\bookshop.webapi\\bookshop.webapi.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\ali_masaüstü\\Github\\BOOKSHOP-APP\\bookshop-back-api\\bookshop.webapi\\bookshop.webapi.csproj",
       "projectName": "bookshop.webapi",
-      "projectPath": "C:\\Users\\User\\Desktop\\ali_masaüstü\\Github\\BOOKSHOP-APP-2\\bookshop-back-api\\bookshop.webapi\\bookshop.webapi.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\ali_masaüstü\\Github\\BOOKSHOP-APP\\bookshop-back-api\\bookshop.webapi\\bookshop.webapi.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\ali_masaüstü\\Github\\BOOKSHOP-APP-2\\bookshop-back-api\\bookshop.webapi\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\ali_masaüstü\\Github\\BOOKSHOP-APP\\bookshop-back-api\\bookshop.webapi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

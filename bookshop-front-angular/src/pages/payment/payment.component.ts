@@ -52,10 +52,11 @@ export class PaymentComponent {
           { responseType: 'text' as 'json' }
         )
       );
-      window.alert("Ödeme işlemi başarılı.");
+      window.alert("Payment Successfull.");
       this.router.navigate(["/"]);
     }
     catch (err) {
+      window.alert("Payment unsuccessfull.");
       console.log(err);
     }
   }

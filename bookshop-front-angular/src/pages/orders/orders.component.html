@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>SİPARİŞLERİM</h1>
+  <h1>ORDERS</h1>
   <div class="order-container" *ngFor="let order of this.sharedState.orders">
     <div class="left">
       <div class="order-item-container" *ngFor="let item of order.items">
@@ -12,21 +12,23 @@
           <h4 class="title">{{ item.book?.title }}</h4>
           <h5 class="subTitle">{{ item.book?.subTitle }}</h5>
           <div class="price">{{ item.book?.price }} ₺</div>
-          <div class="quantity">{{ item.quantity }} Adet</div>
-          <button (click)="refund(order.id)">Geri İade Et</button>
+          <div class="quantity">{{ item.quantity }} Piece</div>
+          <button (click)="refund(order.id)">Confirm Refund</button>
         </div>
       </div>
     </div>
     <div class="right">
       <div class="total-price">
-        <strong>Toplam Sipariş Tutarı :</strong> {{ order.totalPrice }} ₺
+        <strong>Total Order Price :</strong> {{ order.totalPrice }} ₺
       </div>
       <div class="address">
-        <strong>Sipariş Adresi : </strong>{{ order.address }}
+        <strong>Delivery Address : </strong>{{ order.address }}
       </div>
-      <div class="country"><strong>Ülke : </strong>{{ order.country }}</div>
-      <div class="city"><strong>Şehir : </strong>{{ order.city }}</div>
+      <div class="country"><strong>Country : </strong>{{ order.country }}</div>
+      <div class="city"><strong>City : </strong>{{ order.city }}</div>
     </div>
   </div>
-  <h2 *ngIf="this.sharedState.orders.length === 0">Henüz Sipariş Yok.</h2>
+  <h2 *ngIf="this.sharedState.orders.length === 0">
+    There is not any order yet.
+  </h2>
 </div>

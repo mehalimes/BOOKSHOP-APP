@@ -1,21 +1,37 @@
 <div class="container">
   <div>
-    <h2>YYÜ KİTABEVİ</h2>
-    <a *ngIf="!this.sharedState.isAuthenticated" routerLink="/login">
-      Giriş Yap
+    <h2>BOOKSHOP APP</h2>
+    <a
+      *ngIf="!this.sharedState.isAuthenticated"
+      routerLink="/login"
+      class="first-link"
+    >
+      Login
     </a>
-    <a *ngIf="!this.sharedState.isAuthenticated" routerLink="/register">
-      Kayıt ol
+    <a
+      *ngIf="!this.sharedState.isAuthenticated"
+      routerLink="/register"
+      class="second-link"
+    >
+      Register
     </a>
     <h4 *ngIf="this.sharedState.isAuthenticated">
       {{ this.sharedState.username }}
     </h4>
-    <a *ngIf="this.sharedState.isAuthenticated" routerLink="/cart">Sepetim</a>
-    <a *ngIf="this.sharedState.isAuthenticated" routerLink="/orders"
-      >Siparişlerim</a
+    <a
+      *ngIf="this.sharedState.isAuthenticated"
+      routerLink="/cart"
+      class="first-link"
+      >Cart</a
+    >
+    <a
+      *ngIf="this.sharedState.isAuthenticated"
+      routerLink="/orders"
+      class="second-link"
+      >Orders</a
     >
     <button *ngIf="this.sharedState.isAuthenticated" (click)="signOut()">
-      Çıkış
+      Logout
     </button>
   </div>
   <main>

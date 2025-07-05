@@ -36,11 +36,11 @@ export class FunctionsService {
         )
       );
       console.log(addToCartResponse);
-      window.alert("Sepete eklendi.");
+      window.alert("Added to Cart.");
     }
     catch (err) {
       console.log(err);
-      window.alert("Sepete eklenemedi.");
+      window.alert("Could not be added to Cart.");
     }
   }
 

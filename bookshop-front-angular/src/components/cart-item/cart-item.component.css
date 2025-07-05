@@ -20,6 +20,10 @@ div.right {
   min-width: 300px;
 }
 
+div.right > * {
+  margin-bottom: 5px;
+}
+
 h5 {
   max-width: 350px;
 }

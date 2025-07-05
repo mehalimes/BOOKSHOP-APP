@@ -9,9 +9,9 @@
     *ngIf="this.isInAdmin === false"
     (click)="functions.addToCart(this.id, this.sharedState.email, $event)"
   >
-    Sepete Ekle
+    Add to Cart
   </button>
   <button *ngIf="this.isInAdmin === true" (click)="deleteBook($event)">
-    Sil
+    Delete
   </button>
 </div>
