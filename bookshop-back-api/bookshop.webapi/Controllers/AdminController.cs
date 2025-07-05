@@ -132,7 +132,7 @@ namespace bookshop.webapi.Controllers
             db.Books.Remove(bookToBeDeleted);
 
             db.SaveChanges();
-
+            
             return Ok("Book has been deleted successfully.");
         }
     }
