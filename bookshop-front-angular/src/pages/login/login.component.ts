@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { SharedStateService } from '../../services/shared-state.service';
 import { lastValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
-import { ButtonComponent } from "../../components/button/button.component";
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, ButtonComponent],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

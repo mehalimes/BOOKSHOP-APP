@@ -48,10 +48,11 @@ export class OrdersComponent {
         )
       );
       console.log(refundResponse);
-      window.alert("Geri İade Başarılı.");
+      window.alert("Refund Successfull.");
       location.reload();
     }
     catch (err) {
+      window.alert("Refund Unsuccessfull.");
       console.log(err);
     }
   }

@@ -41,3 +41,30 @@ button {
   display: block;
   margin-top: 40px;
 }
+
+.input-base {
+  width: 190px;
+  height: 35px;
+  outline: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding-left: 9px;
+}
+
+.input-base:focus {
+  outline: none;
+}
+
+.button-base {
+  min-width: 70px;
+  min-height: 30px;
+  padding: 3px 5px 3px 5px;
+  background-color: white;
+  border-radius: 5px;
+  border-bottom: 3px solid black;
+}
+
+.button-base:active {
+  border-bottom: 2px solid black;
+  transform: translateY(3px);
+}

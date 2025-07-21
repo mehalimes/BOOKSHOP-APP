@@ -2,15 +2,15 @@
   <div class="sub-container">
     <h2>LOGIN</h2>
     <input
-      class="email"
+      class="email input-base"
       placeholder="Email"
       [(ngModel)]="this.sharedState.email"
     />
     <input
-      class="password"
+      class="password input-base"
       placeholder="Password"
       [(ngModel)]="this.sharedState.password"
     />
-    <button (click)="login()">Login</button>
+    <button (click)="login()" class="button-base">Login</button>
   </div>
 </div>

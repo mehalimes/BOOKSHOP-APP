@@ -13,7 +13,6 @@
           <h5 class="subTitle">{{ item.book?.subTitle }}</h5>
           <div class="price">{{ item.book?.price }} ₺</div>
           <div class="quantity">{{ item.quantity }} Piece</div>
-          <button (click)="refund(order.id)">Confirm Refund</button>
         </div>
       </div>
     </div>
@@ -26,6 +25,9 @@
       </div>
       <div class="country"><strong>Country : </strong>{{ order.country }}</div>
       <div class="city"><strong>City : </strong>{{ order.city }}</div>
+      <button class="button-base" (click)="refund(order.id)">
+        Confirm Refund
+      </button>
     </div>
   </div>
   <h2 *ngIf="this.sharedState.orders.length === 0">

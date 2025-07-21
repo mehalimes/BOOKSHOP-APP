@@ -6,3 +6,17 @@ img {
   width: 128px;
   height: 158px;
 }
+
+.button-base {
+  min-width: 70px;
+  min-height: 30px;
+  padding: 3px 5px 3px 5px;
+  background-color: white;
+  border-radius: 5px;
+  border-bottom: 3px solid black;
+}
+
+.button-base:active {
+  border-bottom: 2px solid black;
+  transform: translateY(3px);
+}

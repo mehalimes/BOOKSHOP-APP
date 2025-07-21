@@ -1,22 +1,56 @@
 <div class="container">
-  <h1>Make Payment</h1>
-  <input placeholder="Name" [(ngModel)]="this.name" />
-  <input placeholder="Surname" [(ngModel)]="this.surname" />
-  <label>Card Informations</label>
-  <input placeholder="Month" [(ngModel)]="this.expireMonth" />
-  <input placeholder="Year" [(ngModel)]="this.expireYear" />
-  <input placeholder="Card Number" [(ngModel)]="this.cardNumber" />
-  <input
-    placeholder="Card Holder's Name and Surname"
-    [(ngModel)]="this.cardHolderName"
-  />
-  <input placeholder="CVC" [(ngModel)]="this.cvc" />
-  <label>Delivery Informations</label>
-  <textarea
-    placeholder="Delivery Address"
-    [(ngModel)]="this.address"
-  ></textarea>
-  <input placeholder="Country" [(ngModel)]="this.country" />
-  <input placeholder="City" [(ngModel)]="this.city" />
-  <button (click)="confirmPayment()">Confirm Payment</button>
+  <div class="box1">
+    <h1>Make Payment</h1>
+  </div>
+  <div class="box2">
+    <input class="input-base" placeholder="Name" [(ngModel)]="this.name" />
+    <input
+      class="input-base"
+      placeholder="Surname"
+      [(ngModel)]="this.surname"
+    />
+  </div>
+  <div class="box3">
+    <label>Card Informations</label>
+    <input
+      class="input-base"
+      placeholder="Month"
+      [(ngModel)]="this.expireMonth"
+    />
+    <input
+      class="input-base"
+      placeholder="Year"
+      [(ngModel)]="this.expireYear"
+    />
+    <input
+      class="input-base"
+      placeholder="Card Number"
+      [(ngModel)]="this.cardNumber"
+    />
+    <input
+      class="input-base"
+      placeholder="Card Holder's Name and Surname"
+      [(ngModel)]="this.cardHolderName"
+    />
+    <input class="input-base" placeholder="CVC" [(ngModel)]="this.cvc" />
+  </div>
+  <div class="box4">
+    <label>Delivery Informations</label>
+    <textarea
+      class="text-area"
+      placeholder="Delivery Address"
+      [(ngModel)]="this.address"
+    ></textarea>
+    <input
+      class="input-base"
+      placeholder="Country"
+      [(ngModel)]="this.country"
+    />
+    <input class="input-base" placeholder="City" [(ngModel)]="this.city" />
+  </div>
+  <div class="box5">
+    <button class="button-base" (click)="confirmPayment()">
+      Confirm Payment
+    </button>
+  </div>
 </div>

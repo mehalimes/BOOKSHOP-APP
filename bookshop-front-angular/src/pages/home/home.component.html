@@ -30,7 +30,11 @@
       class="second-link"
       >Orders</a
     >
-    <button *ngIf="this.sharedState.isAuthenticated" (click)="signOut()">
+    <button
+      class="button-base"
+      *ngIf="this.sharedState.isAuthenticated"
+      (click)="signOut()"
+    >
       Logout
     </button>
   </div>

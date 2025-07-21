@@ -1,4 +1,4 @@
-<div class="container" (click)="navigateToProductPage()">
+<div class="container">
   <img src="{{ this.publicId }}" />
   <div class="left">
     <h4 class="title">{{ this.title }}</h4>
@@ -6,6 +6,7 @@
     <h3 class="price">{{ this.price }} ₺</h3>
   </div>
   <button
+    class="button-base"
     *ngIf="this.isInAdmin === false"
     (click)="functions.addToCart(this.id, this.sharedState.email, $event)"
   >

@@ -1,17 +1,91 @@
 div.container {
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 150px 1fr 150px;
+}
+
+div.box1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+div.box2 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+div.box5 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+div.box2 {
+  padding-left: 50%;
+}
+
+div.box4 {
+  padding-right: 50%;
+}
+
+div.box2,
+div.box3,
+div.box4 {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-div.container > * {
-  margin-top: 10px;
+div.box2 > *,
+div.box3 > *,
+div.box4 > * {
+  margin-bottom: 7px;
 }
 
 textarea {
   width: 250px;
   height: 100px;
+}
+
+.button-base {
+  min-width: 70px;
+  min-height: 30px;
+  padding: 3px 5px 3px 5px;
+  background-color: white;
+  border-radius: 5px;
+  border-bottom: 3px solid black;
+}
+
+.button-base:active {
+  border-bottom: 2px solid black;
+  transform: translateY(3px);
+}
+
+.input-base {
+  width: 190px;
+  height: 35px;
+  outline: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding-left: 9px;
+}
+
+.input-base:focus {
+  outline: none;
+}
+
+.text-area {
+  outline: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding-left: 9px;
+  padding-top: 5px;
 }

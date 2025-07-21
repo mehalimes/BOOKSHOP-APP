@@ -34,17 +34,19 @@ div.order-container {
 h1 {
   width: fit-content;
   height: fit-content;
-  margin-left: calc(50% - 116px);
+  margin-left: calc((100% - 124px) / 2);
+  margin-top: 30px;
 }
 
 h2 {
   width: fit-content;
   margin-top: 30px;
-  margin-left: calc(50% - 97.5px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.order-container {
-  border: 1px solid black;
+  border: 3px solid black;
   border-radius: 30px;
   margin-left: 30px;
   margin-right: 30px;
@@ -59,4 +61,22 @@ div.left {
 div.order-container {
   width: 800px;
   margin-left: calc(50% - 400px);
+}
+
+.button-base {
+  min-width: 70px;
+  min-height: 30px;
+  padding: 3px 5px 3px 5px;
+  background-color: white;
+  border-radius: 5px;
+  border-bottom: 3px solid black;
+}
+
+.button-base:active {
+  border-bottom: 2px solid black;
+  transform: translateY(3px);
+}
+
+button {
+  margin-top: 15px;
 }

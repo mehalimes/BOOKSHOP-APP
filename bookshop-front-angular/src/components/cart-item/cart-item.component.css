@@ -27,3 +27,39 @@ div.right > * {
 h5 {
   max-width: 350px;
 }
+
+h3 {
+  text-align: center;
+}
+
+.button-base {
+  min-width: 70px;
+  min-height: 30px;
+  padding: 3px 5px 3px 5px;
+  background-color: white;
+  border-radius: 5px;
+  border-bottom: 3px solid black;
+}
+
+.button-base:active {
+  border-bottom: 2px solid black;
+  transform: translateY(3px);
+}
+
+div.right-left {
+  width: 50%;
+}
+
+div.right-right {
+  width: 50%;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.right-sub-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
